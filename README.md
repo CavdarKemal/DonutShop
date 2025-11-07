@@ -4,7 +4,7 @@ A comprehensive, hands-on tutorial exploring Jackson JSON processing in Spring B
 JSON serialization and deserialization, leverage Jackson 3's new features, configure JsonMapper, 
 and implement real-world filtering patterns with `@JsonView` and the new `hint()` method.
 
-If you want to learn more about these changes you can read [this article](https://spring.io/blog/2025/10/07/introducing-jackson-3-support-in-spring) 
+If you want to learn more about these changes, you can read [this article](https://spring.io/blog/2025/10/07/introducing-jackson-3-support-in-spring) 
 by Sébastien Deleuze. 
 
 ## What you will learn

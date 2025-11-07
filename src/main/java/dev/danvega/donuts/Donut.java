@@ -18,7 +18,7 @@ public record Donut(
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "$#.##")
         BigDecimal price,
         @JsonView(Views.Public.class)
-        boolean isVegan,
+        Boolean isVegan,
         @JsonView(Views.Internal.class)
         Integer calories,
         @JsonView(Views.Internal.class)

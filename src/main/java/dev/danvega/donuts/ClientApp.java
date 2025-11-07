@@ -32,8 +32,6 @@ public class ClientApp implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-
-
         // Create a Donut with ALL fields populated
         Donut clientDonut = new Donut(
                 "Maple Bar",
@@ -45,39 +43,14 @@ public class ClientApp implements ApplicationRunner {
                 LocalDateTime.now().minusHours(2)  // Client tries to set bakedAt
         );
 
-        log.info("Client created donut with ALL fields:");
-        log.info("  Type: {}", clientDonut.type());
-        log.info("  Glaze: {}", clientDonut.glaze());
-        log.info("  Toppings: {}", clientDonut.toppings());
-        log.info("  Price: {}", clientDonut.price());
-        log.info("  IsVegan: {}", clientDonut.isVegan());
-        log.info("  Calories: {}", clientDonut.calories());
-        log.info("  BakedAt: {}", clientDonut.bakedAt());
-
         log.info("\nUsing hint() with Views.Summary.class - only type and price will be sent");
 
         // POST with hint() - only Summary fields (type, price) are serialized and sent
-        Donut createdDonut = this.client.post()
+        this.client.post()
                 .uri("/api/donuts")
                 .hint(JsonView.class.getName(), Views.Summary.class)
                 .body(clientDonut)
                 .retrieve()
                 .body(Donut.class);
-
-        log.info("\nServer returned created donut with server-generated fields:");
-        log.info("  Type: {} (from client)", createdDonut.type());
-        log.info("  Glaze: {} (server default)", createdDonut.glaze());
-        log.info("  Toppings: {} (server default)", createdDonut.toppings());
-        log.info("  Price: {} (from client)", createdDonut.price());
-        log.info("  IsVegan: {} (server calculated)", createdDonut.isVegan());
-        log.info("  Calories: {} (server calculated)", createdDonut.calories());
-        log.info("  BakedAt: {} (server timestamp)", createdDonut.bakedAt());
-
-        log.info("\n=== Key Insight ===");
-        log.info("Client tried to send: glaze={}, toppings={}, calories={}",
-                clientDonut.glaze(), clientDonut.toppings(), clientDonut.calories());
-        log.info("Server received: glaze=null, toppings=null, calories=null (filtered by hint())");
-        log.info("Server generated: glaze={}, toppings={}, calories={}",
-                createdDonut.glaze(), createdDonut.toppings(), createdDonut.calories());
     }
 }
