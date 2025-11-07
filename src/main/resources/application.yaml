@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: donuts
+  jackson:
+    use-jackson2-defaults: true
+    serialization:
+      indent-output: true
+
+#  jackson:
+#    mapper:
+#      sort-properties-alphabetically: false
