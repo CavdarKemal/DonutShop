@@ -6,6 +6,11 @@ spring:
     serialization:
       indent-output: true
 
+# BootUI-Dashboard nur unter dem Profil 'dev' aktivieren (Prod/Tests bleiben unberuehrt).
+# Start mit Profil dev: mvn spring-boot:run -Dspring-boot.run.profiles=dev  ->  Dashboard unter /bootui
+bootui:
+  enabled-profiles: dev
+
 #  jackson:
 #    mapper:
 #      sort-properties-alphabetically: false
