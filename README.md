@@ -1,4 +1,9 @@
 # Jackson JsonView with Spring Boot 4.0
+https://www.youtube.com/watch?v=4cvP_qroLH4
+
+> **Source & attribution:** This project is based on [danvega/donut-shop](https://github.com/danvega/donut-shop)
+> by Dan Vega. This fork ([CavdarKemal/DonutShop](https://github.com/CavdarKemal/DonutShop)) extends the original
+> independently — e.g. integrating the BootUI dev dashboard and upgrading to Spring Boot 4.1.0.
 
 A comprehensive, hands-on tutorial exploring Jackson JSON processing in Spring Boot 4.0. Learn how to control 
 JSON serialization and deserialization, leverage Jackson 3's new features, configure JsonMapper, 
